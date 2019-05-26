@@ -67,7 +67,7 @@
                                         <div class="input-group-prepend">
                                             <span>ID Usuario</span>
                                         </div>
-                                        <input type="number" class="form-control" name="id" value="<% if (typeForm.equals("update")) {
+                                        <input required type="number" class="form-control" name="id" value="<% if (typeForm.equals("update")) {
                                                         out.print(hero.getHeroid());
                                                     } %>"<% if (typeForm.equals("update")) {
                                                             out.print("readonly");
@@ -78,7 +78,7 @@
                                 <div class="form-group">
                                     <div class="col-lg-3">
                                         <span>Hero Name</span>
-                                        <input type="text" class="form-control" name="name"  placeholder="Hero Name" value="<% if (typeForm.equals("update")) {
+                                        <input required type="text" class="form-control" name="name"  placeholder="Hero Name" value="<% if (typeForm.equals("update")) {
                                                            out.print(hero.getHeroname());} %>">
                                     </div>
                                 </div>
@@ -86,7 +86,7 @@
                                 <div class="form-group">
                                     <div class="col-lg-2">
                                         <span>Eyes Color</span>
-                                        <input type="text" class="form-control" name="eyes"  placeholder="Color Eyes" value="<% if (typeForm.equals("update")) {
+                                        <input required type="text" class="form-control" name="eyes"  placeholder="Color Eyes" value="<% if (typeForm.equals("update")) {
                                                            out.print(hero.getEyecolor());
                                                        }%>">
                                     </div>
@@ -95,7 +95,7 @@
                                 <div class="form-group">
                                     <div class="col-lg-2">
                                         <span>Hair Color</span>
-                                        <input type="text" class="form-control" name="hair"  placeholder="Color Hair" value="<% if (typeForm.equals("update")) {
+                                        <input required type="text" class="form-control" name="hair"  placeholder="Color Hair" value="<% if (typeForm.equals("update")) {
                                                            out.print(hero.getHaircolor());
                                                        }%>">
                                     </div>
@@ -104,7 +104,7 @@
                                 <div class="form-group">
                                     <div class="col-lg-2">
                                         <span>Skin Color</span>
-                                        <input type="text" class="form-control" name="skin"  placeholder="Color Skin" value="<% if (typeForm.equals("update")) {
+                                        <input required type="text" class="form-control" name="skin"  placeholder="Color Skin" value="<% if (typeForm.equals("update")) {
                                                            out.print(hero.getSkincolor());
                                                        }%>">
                                     </div>
@@ -113,7 +113,7 @@
                                 <div class="form-group">
                                     <div class="col-lg-1">
                                         <span>Height</span>
-                                        <input type="number" class="form-control" name="height"  placeholder="cm" value="<% if (typeForm.equals("update")) {
+                                        <input required type="number" class="form-control" name="height"  placeholder="cm" value="<% if (typeForm.equals("update")) {
                                                            out.print(hero.getHeight());
                                                        }%>">
                                     </div>
@@ -122,7 +122,7 @@
                                 <div class="form-group">
                                     <div class="col-lg-1">
                                         <span>Weight</span>
-                                        <input type="number" class="form-control" name="weight"  placeholder="" value="<% if (typeForm.equals("update")) {
+                                        <input required type="number" class="form-control" name="weight"  placeholder="" value="<% if (typeForm.equals("update")) {
                                                            out.print(hero.getWeight());
                                                        }%>">
                                     </div>
@@ -171,9 +171,11 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <div class="col-sm-10">
-                                        <button type="submit" class="btn btn-primary btn"><%= typeForm%></button>
+                                <div>
+                                    <div>
+                                        <span></span>
+                                        <button type="submit" class="col-md-2 col-md-offset-5 btn-primary btn"><%= typeForm%></button>
+                                        <a class="col-md-2 col-md-offset-5 btn-primary btn" href="heroes">Back</a>
                                     </div>
                                 </div>
                             </form>

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IHeroesData {
     public List<Heroes> ListHeroes();
-    public List<Heroes> findByData(Heroes hero);
+    public List findByData(Integer pubid, Integer alid, String race);
     public List<Heroes> comboPublisher();
     public List<Heroes> comboRace();
     public List<Heroes> comboAlignment();

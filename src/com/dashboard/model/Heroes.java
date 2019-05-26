@@ -18,10 +18,10 @@ public class Heroes {
     public Heroes() {
     }
 
-    public Heroes(String race, int publisherid, int alignmentid) {
-        this.race = race;
+    public Heroes(int publisherid, int alignmentid, String race) {
         this.publisherid = publisherid;
         this.alignmentid = alignmentid;
+        this.race = race;
     }
 
     public Heroes(int heroid, String heroname, String eyecolor, String haircolor, String skincolor, int height, int weight, String race, int publisherid, int genderid, int alignmentid) {
@@ -42,9 +42,8 @@ public class Heroes {
         this.heroid = heroid;
     }
 
-    public Heroes(Integer pubid, Integer alid, String race) {
 
-    }
+
 
     public int getHeroid() {
         return heroid;

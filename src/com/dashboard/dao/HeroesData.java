@@ -46,23 +46,22 @@ public class HeroesData implements IHeroesData {
 
     //Load data from heroes db, bringing: publiser_id, race and alignment_id.
     @Override
-    public List<Heroes> findByData(Heroes hero) {
+    public List findByData(Integer pubid, Integer alid, String race) {
         List<Heroes> listhero = new ArrayList<>();
-        ResultSet rs;
 
         try{
             DBConnection letsconnect = new DBConnection();
 
             String sql = "SELECT h.hero_id, h.name, p.publisher_name, h.race, a.name as alignment FROM hero_information as h INNER JOIN publisher as p ON (h.publisher_id=p.publisher_id) INNER JOIN alignment as a ON (h.alignment_id=a.alignment_id) WHERE a.alignment_id = ? AND p.publisher_id = ? AND h.race = ?";
 
-            PreparedStatement ps = letsconnect.getConnection().prepareCall(sql);
-            ps.setInt(1, hero.getAlignmentid());
-            ps.setInt(2, hero.getPublisherid());
-            ps.setString(3, hero.getRace());
-            rs = ps.executeQuery();
-
+            PreparedStatement ps = letsconnect.getConnection().prepareStatement(sql);
+            ps.setInt(1, alid);
+            ps.setInt(2, pubid);
+            ps.setString(3, race);
+            ResultSet rs = ps.executeQuery();
+            System.out.println(pubid+"alo"+alid+"ola"+race);
             while (rs.next()){
-                hero = new Heroes();
+                Heroes hero = new Heroes();
 
                 hero.setHeroid(rs.getInt("hero_id"));
                 hero.setHeroname(rs.getString("name"));
@@ -70,7 +69,6 @@ public class HeroesData implements IHeroesData {
                 hero.setRace(rs.getString("race"));
                 hero.setAlignmentname(rs.getString("alignment"));
 
-                System.out.println(hero.getHeroid());
                 listhero.add(hero);
             }
             letsconnect.DBDisconnect();
@@ -85,7 +83,7 @@ public class HeroesData implements IHeroesData {
     @Override
     public String insert(Heroes hero) {
         String message;
-
+        System.out.println(hero.getHeroid()+hero.getHeroname()+hero.getRace());
         try {
             DBConnection letsconnect = new DBConnection();
             String sql = "INSERT INTO hero_information (hero_id, name, eye_color, hair_color, skin_color, height, weight, race, publisher_id, gender_id, alignment_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -93,7 +91,7 @@ public class HeroesData implements IHeroesData {
             System.out.println(sql);
 
             PreparedStatement ps = letsconnect.getConnection().prepareCall(sql);
-            System.out.println(hero.getHeroid()+hero.getHeroname()+hero.getRace());
+
 
             ps.setInt(1, hero.getHeroid());
             ps.setString(2, hero.getHeroname());

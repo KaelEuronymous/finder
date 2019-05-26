@@ -10,10 +10,10 @@ public class DBConnection {
 
     //DB connection.
     public DBConnection() {
-        String USER = "root";
-        String PASS = "";
+        String USER = "test";
+        String PASS = "fortnite";
         String CLASSNAME = "com.mysql.cj.jdbc.Driver";
-        String URL = "jdbc:mysql://localhost:3306/heroes";
+        String URL = "jdbc:mysql://ec2-3-217-159-183.compute-1.amazonaws.com:3306/heroes";
 
                 try{
                     Class.forName(CLASSNAME);

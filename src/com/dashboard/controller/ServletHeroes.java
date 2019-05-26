@@ -29,6 +29,7 @@ public class ServletHeroes extends HttpServlet {
             }
 
         } else {
+
             HeroesData data = new HeroesData();
             List<Heroes> listHero = data.ListHeroes();
             request.setAttribute("hero", listHero);
@@ -92,15 +93,16 @@ public class ServletHeroes extends HttpServlet {
             throws ServletException, IOException {
 
 
-        Integer pubid = Integer.parseInt(request.getParameter("pub"));
-        Integer alid = Integer.parseInt(request.getParameter("alignmetnid"));
+        Integer pubid = Integer.parseInt(request.getParameter("pubid"));
+        Integer alid = Integer.parseInt(request.getParameter("alignmentid"));
         String race = request.getParameter("race");
 
         HeroesData herodao = new HeroesData();
-        List<Heroes> message = herodao.findByData(new Heroes(pubid, alid, race));
+        List<Heroes> message = herodao.findByData(pubid, alid,race);
         request.setAttribute("hero", message);
-        request.getRequestDispatcher("heroes");
-        response.sendRedirect("heroes");
+        request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request,response);
+
+        System.out.println(pubid+"-"+alid+"-"+race);
     }
 
     private void insertHero(HttpServletRequest request, HttpServletResponse response)
@@ -116,14 +118,14 @@ public class ServletHeroes extends HttpServlet {
         String race = request.getParameter("race");
         Integer publisher = Integer.parseInt(request.getParameter("pub"));
         Integer genderid = Integer.parseInt(request.getParameter("genderid"));
-        Integer alignmentid = Integer.parseInt(request.getParameter("alignmetnid"));
+        Integer alignmentid = Integer.parseInt(request.getParameter("alignmentid"));
 
         System.out.println(heroid+namehero);
 
         HeroesData herodao = new HeroesData();
         String message = herodao.insert(new Heroes(heroid, namehero, eyecolor, haircolor, skincolor, height, weight, race, publisher, genderid, alignmentid));
         System.out.println(heroid+namehero+eyecolor);
-        request.getSession().setAttribute("op_hero", message);
+        request.getSession().setAttribute("hero", message);
         response.sendRedirect("heroes");
     }
 

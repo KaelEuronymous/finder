@@ -1,7 +1,7 @@
 <%-- 
     Document   : foother
     Created on : 25/08/2018, 03:57:08 PM
-    Author     : byron
+    Author     : Cross
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,7 +9,7 @@
     <div class="container">
 
         <div class="copy text-center">
-             <a href='#'>Java 2018</a>
+             <a href='#'>Heroes 2019</a>
         </div>
 
     </div>

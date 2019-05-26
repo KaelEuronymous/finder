@@ -25,5 +25,14 @@ public class Tester {
             System.out.println(heroes.getPublishername()+"-");
         }*/
 
+        HeroesData list = new HeroesData();
+        List<Heroes> hero = list.findByData( 12,  1, "Human");
+
+        for (Heroes heroes : hero){
+            System.out.print(heroes.getHeroname()+"-");
+            System.out.println(heroes.getRace()+"-");
+        }
+
+
     }
 }

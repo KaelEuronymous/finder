@@ -31,19 +31,18 @@
 
   </head>
   <body>
-
   <jsp:include page="../layouts/header.jsp"></jsp:include>
 
 
-  <div class="page-content">
+  <div class="container">
 
     <div class="row">
         <div class="row">
           <div class="col-md-12">
-            <div class="content-box-large">
+            <div style="background-color: rgba(0,0,0,0.8)">
 
-              <form action="heroes" method="post">
-                  <table>
+              <form action="heroes" method="post"  >
+                  <table style="color: floralwhite">
                     <thead>
 
                     <tr>
@@ -51,7 +50,7 @@
                         <div>
                           <label class="input-group-text" for="inputGroupSelect01">Publisher</label>
                         </div>
-                        <select class="custom-select" id="inputGroupSelect01" name="pub">
+                        <select class="custom-select" id="inputGroupSelect01" name="pubid">
                           <%  for (Heroes pub : listpublish) {%>
                           <option value="<%= pub.getPublisherid()%>"><%= pub.getPublishername()%></option>
                           <%}%>
@@ -79,11 +78,13 @@
                       </th>
                       <th>
                         <div>
-                          <label>-----------</label>
+                          <label>.</label>
                         </div>
                         <form action="heroes" method="get">
                           <input type="hidden" name="action" value="search">
                           <input type="submit" value="Search" class="btn btn-primary">
+
+                          <a href="heroes?action=create" class="btn btn-primary btn">Add Hero</a>
                         </form>
                       </th>
                     </tr>
@@ -92,10 +93,10 @@
               </form>
 
               <div class="panel-heading">
-                <div class="panel-title"><h2>Heroes</h2></div>
+                <div class="panel-title" style="color: floralwhite"><h2>Heroes</h2></div>
               </div>
               <div class="panel-body">
-                <table class="table">
+                <table class="table" style="color: floralwhite">
                   <thead>
                   <tr>
                     <th>Hero Name</th>
@@ -130,7 +131,6 @@
 
                   </tbody>
                 </table>
-                <a href="heroes?action=create" class="btn btn-primary btn">Add Hero</a>
               </div>
           </div>
 
