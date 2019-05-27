@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/vegas.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css">
 
     <%
       HeroesData data = new HeroesData();
@@ -39,7 +38,7 @@
     <div class="row">
         <div class="row">
           <div class="col-md-12">
-            <div style="background-color: rgba(0,0,0,0.8)">
+            <div class="content-box-large" style="background-color: rgba(0,0,0,0.8)">
 
               <form action="heroes" method="post"  >
                   <table style="color: floralwhite">
@@ -95,7 +94,7 @@
               <div class="panel-heading">
                 <div class="panel-title" style="color: floralwhite"><h2>Heroes</h2></div>
               </div>
-              <div class="panel-body">
+              <div class="panel-body" style="width: auto; height: 60%; overflow: scroll">
                 <table class="table" style="color: floralwhite">
                   <thead>
                   <tr>

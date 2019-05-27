@@ -172,6 +172,10 @@ public class HeroesData implements IHeroesData {
                 hero.setSkincolor(rs.getString("skin_color"));
                 hero.setHeight(rs.getInt("height"));
                 hero.setWeight(rs.getInt("weight"));
+                hero.setRace(rs.getString("race"));
+                hero.setPublisherid(rs.getInt("publisher_id"));
+                hero.setGenderid(rs.getInt("gender_id"));
+                hero.setAlignmentid(rs.getInt("alignment_id"));
 
                 System.out.println(rs);
             }

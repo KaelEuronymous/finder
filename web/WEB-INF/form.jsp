@@ -37,14 +37,14 @@
 <body>
 <jsp:include page="../layouts/header.jsp"></jsp:include>
 
-<div class="page-content">
+<div class="container">
     <div class="row">
         <div>
             <div class="row">
-                <div>
-                    <div class="content-box-large">
+                <div style="color: floralwhite" >
+                    <div class="content-box-large" style="background-color: rgba(0,0,0,0.8)" >
 
-                        <div class="panel-heading">
+                        <div class="panel-heading" >
 
                             <div class="panel-title">
                                 <% if (typeForm.equals("update")) {
@@ -133,7 +133,11 @@
                                         <span>Race</span>
                                         <select class="custom-select" id="inputGroupSelect00" name="race">
                                             <%  for (Heroes race : listrace) {%>
-                                            <option value="<%= race.getRace()%>"><%= race.getRace()%></option>
+                                            <option value="<%= race.getRace()%>" <% if (typeForm.equals("update")){
+                                                if (race.getRace().equals(hero.getRace())) {
+                                                    out.print("selected");
+                                                }
+                                            }%> ><%= race.getRace()%></option>
                                             <%}%>
                                         </select>
                                     </div>
@@ -142,9 +146,11 @@
                                 <div class="form-group">
                                     <div class="col-lg-2">
                                         <span>Publisher House</span>
-                                        <select class="custom-select" id="inputGroupSelect01" name="pub">
+                                        <select class="custom-select" id="inputGroupSelect01" name="pub" >
                                             <%  for (Heroes pub : listpublish) {%>
-                                            <option value="<%= pub.getPublisherid()%>"><%= pub.getPublishername()%></option>
+                                            <option value="<%= pub.getPublisherid()%>" <% if (typeForm.equals("update")){if(pub.getPublisherid()==hero.getPublisherid()) {
+                                                out.print("selected");
+                                            }} %> ><%= pub.getPublishername()%></option>
                                             <%}%>
                                         </select>
                                     </div>
@@ -154,8 +160,8 @@
                                     <div class="col-lg-1">
                                         <span>Gender</span>
                                         <select class="custom-select" id="inputGroupSelect02" name="genderid">
-                                            <option value="1">Female</option>
-                                            <option value="2">Male</option>
+                                            <option value="1" <% if (typeForm.equals("update")) {if (hero.getGenderid()==1) {out.print("selected");}} %> >Female</option>
+                                            <option value="2" <% if (typeForm.equals("update")) {if (hero.getGenderid()==2) {out.print("selected");}} %> >Male</option>
                                         </select>
                                     </div>
                                 </div>
@@ -163,9 +169,11 @@
                                 <div class="form-group">
                                     <div class="col-sm-1">
                                         <span>Alignment</span>
-                                        <select class="custom-select" id="inputGroupSelect03" name="alignmentid">
+                                        <select class="custom-select" id="inputGroupSelect03" name="alignmentid" >
                                             <%  for (Heroes ali : listalignment) {%>
-                                            <option value="<%= ali.getAlignmentid()%>"><%= ali.getAlignmentname()%></option>
+                                            <option value="<%= ali.getAlignmentid()%>" <% if (typeForm.equals("update")) {if (ali.getAlignmentid()==hero.getAlignmentid()) {
+                                                out.print("selected");
+                                            }} %> ><%= ali.getAlignmentname()%></option>
                                             <%}%>
                                         </select>
                                     </div>
@@ -189,7 +197,21 @@
     </div>
 </div>
 </div>
-
-<jsp:include page="../layouts/footer.jsp"></jsp:include>
 </body>
+<script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/vegas.js"></script>
+<script type="text/javascript">
+    $("#example, body").vegas({
+        slides: [
+            {src: "<%=request.getContextPath()%>/resources/img/1.jpg"},
+            {src: "<%=request.getContextPath()%>/resources/img/2.jpg"},
+            {src: "<%=request.getContextPath()%>/resources/img/3.jpg"},
+            {src: "<%=request.getContextPath()%>/resources/img/4.jpg"}
+        ],
+        animation: 'random',
+        overlay: 'resources/overlays/03.png'
+    });
+</script>
 </html>
